@@ -1,0 +1,24 @@
+$color-text: #FFFFFF;
+$color-badge-background: #FFFFFF;
+$color-badge-text: #404040;
+$margin-badge-left: 12px;
+
+.basket{
+  color: $color-text;
+  position: relative;
+  font-size: 2rem;
+  height: fit-content;
+  width: fit-content;
+  margin: 0 $margin-badge-left 0 auto;
+  .basketBadge{
+    position: absolute;
+    background: $color-badge-background;
+    color: $color-badge-text;
+    font-size: 0.8rem;
+    padding: 1px 5px;
+    border-radius: 0.5rem;
+    top: 2px;
+    right: -$margin-badge-left;
+  }
+
+}
