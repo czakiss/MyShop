@@ -10,23 +10,27 @@ import Shop from "./components/Pages/Shop/Shop";
 import Product from "./components/Pages/Product/Product";
 import PageNotFound from "./components/Pages/PageNotFound/PageNotFound";
 import NavbarComponent from "./components/NavbarComponent/NavbarComponent";
+import Provider from "react-redux/lib/components/Provider";
+import {createStore} from "redux";
+import {composeWithDevTools} from "redux-devtools-extension";
 
+import rootReducer from "./reducers";
+const store = createStore(rootReducer, composeWithDevTools())
 
 ReactDOM.render(
-  <React.StrictMode>
-      <BrowserRouter>
-          <NavbarComponent/>
-          <Routes>
-              <Route path="/" element={<App />} />
-              <Route path="shop" element={<Shop />} />
-              <Route path="product" element={<Product />}>
-                  {/*<Route path=":productId" element={<Product />} />*/}
-              </Route>
-              <Route path="*" element={<PageNotFound/>}/>
-          </Routes>
-      </BrowserRouter>
-
-  </React.StrictMode>,
+    <Provider store={store}>
+        <React.StrictMode>
+            <BrowserRouter>
+                <NavbarComponent/>
+                <Routes>
+                    <Route path="/" element={<App />} />
+                    <Route exact path="/product/:id"  element={<Product/>} />
+                    <Route path="*" element={<PageNotFound/>}/>
+                </Routes>
+            </BrowserRouter>
+        </React.StrictMode>
+    </Provider>
+  ,
   document.getElementById('root')
 );
 

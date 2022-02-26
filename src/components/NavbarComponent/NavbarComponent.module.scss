@@ -3,14 +3,14 @@ $color-badge-background: #FFFFFF;
 $color-badge-text: #404040;
 $margin-badge-left: 12px;
 
-.basket{
+.cart{
   color: $color-text;
   position: relative;
   font-size: 2rem;
   height: fit-content;
   width: fit-content;
   margin: 0 $margin-badge-left 0 auto;
-  .basketBadge{
+  .cartBadge{
     position: absolute;
     background: $color-badge-background;
     color: $color-badge-text;
@@ -20,5 +20,25 @@ $margin-badge-left: 12px;
     top: 2px;
     right: -$margin-badge-left;
   }
-
 }
+
+.cartCard{
+  padding: 0.3rem;
+  .cartProduct{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .cartProductName{
+    font-weight: bold;
+  }
+  .cartProductEmpty{
+    font-size: 1.3rem;
+  }
+}
+
